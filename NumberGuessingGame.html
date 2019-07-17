@@ -1,0 +1,50 @@
+<header>
+    <script>
+    var min=0; 
+    var max=10;
+    var finalNumber = Math.ceil(Math.random() * (+max - +min)) + +min;
+    console.log(finalNumber);
+    var count = 10;
+    var text = "";
+        function checkNums(){
+            count--;
+            if(count == 0)
+            {
+                alert("You lose :(, The answer is: "+
+                    finalNumber
+                +". Try again!"
+                );
+                location.reload();
+            }
+            var guess = document.getElementById('number').value;
+            if(guess==finalNumber)
+            {
+                document.getElementById('message').innerHTML = 'Congratulations!! You guessed correct!';
+                document.getElementById('message').style.backgroundColor ="green";
+                document.getElementById('number').setAttribute("readonly",true);
+                document.getElementById('buttons').innerHTML= '<button id="playagainButton">Play again</button>'
+                    var tryagain = document.getElementById('playagainButton');
+                    tryagain.addEventListener('click',function(){
+                        location.reload();
+                    });
+            }
+            else if(guess<finalNumber){
+                document.getElementById('message').innerHTML = 'your number is too low - guess higher, you have '+ count +' left'
+            }
+            else{
+                document.getElementById('message').innerHTML = 'your number is too high - guess lower, you have '+ count +' left'
+            }
+            text = text + guess + ' ';
+            document.getElementById('passGuesser').innerHTML = text;
+        }
+    </script>
+</header>
+
+<h1>Number Guessing Game</h1>
+<p>Type number here:</p>
+<div id="message" style="background-color: red"></div>
+<input type="number" id="number"/>
+
+<div id="buttons"><button id="guessButton" onClick="checkNums();">Guess</button></div>
+<h2>Pass guesser:</h2>
+<p id="passGuesser"></p>
