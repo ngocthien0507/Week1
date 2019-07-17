@@ -19,7 +19,8 @@
             var guess = document.getElementById('number').value;
             if(guess==finalNumber)
             {
-                document.getElementById('message').innerHTML = 'Congratulations!! You guessed correct!';
+                let left = 10 - parseInt(count);
+                document.getElementById('message').innerHTML = 'Congratulations!! '+ finalNumber+ ' was the correct answer! it took you '+ left +' tries to guess the answer';
                 document.getElementById('message').style.backgroundColor ="green";
                 document.getElementById('number').setAttribute("readonly",true);
                 document.getElementById('buttons').innerHTML= '<button id="playagainButton">Play again</button>'
@@ -46,5 +47,5 @@
 <input type="number" id="number"/>
 
 <div id="buttons"><button id="guessButton" onClick="checkNums();">Guess</button></div>
-<h2>Pass guesser:</h2>
+<h2>Pass guesses:</h2>
 <p id="passGuesser"></p>
