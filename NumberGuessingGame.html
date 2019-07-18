@@ -36,7 +36,7 @@
                 document.getElementById('message').innerHTML = 'your number is too high - guess lower, you have '+ count +' left'
             }
             text = text + guess + ' ';
-            document.getElementById('passGuesser').innerHTML = text;
+            document.getElementById('pastGuesser').innerHTML = text;
         }
     </script>
 </header>
@@ -47,5 +47,5 @@
 <input type="number" id="number"/>
 
 <div id="buttons"><button id="guessButton" onClick="checkNums();">Guess</button></div>
-<h2>Pass guesses:</h2>
-<p id="passGuesser"></p>
+<h2>Past guesses:</h2>
+<p id="pastGuesser"></p>
